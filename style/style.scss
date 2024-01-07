@@ -78,12 +78,20 @@ header {
   align-items: center;
   padding: 15px;
   border-bottom: 1px solid var(--color-grayish-blue);
+ 
+  @media (max-width: 600px) {
+    font-size: 1.4rem;
+  }
+
 }
+
+
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .logo-pic {
@@ -92,14 +100,30 @@ header {
 
 .navigation,
 a {
-  margin: 0 0.4rem;
+  margin: 0 0.1rem;
+  @media (max-width: 600px) {
+    gap: calc(var(--default-padding) / 2);
+  }
 }
 
 .section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+    gap: var(--default-padding);
+    grid-template-columns: repeat(1 , 1fr);
+    flex-direction: column-reverse;
+}
 }
 
+.section1, .section3{
+  @media (max-width: 600px){
+    display: flex;
+  flex-direction: column-reverse;
+  }
+
+}
 .intro {
   display: flex;
   flex-direction: column;
@@ -123,6 +147,11 @@ p {
 .buttons {
   margin-top: 2rem;
   display: flex;
+  flex-direction: column;
+
+  @media (min-width: 601px) {
+    flex-direction: row;
+}
 }
 
 .button {
@@ -136,6 +165,7 @@ p {
   box-shadow: 0 0.4rem 0.8rem 0.2rem rgba(0, 0, 0, 0.1);
   text-align: center;
   margin: 10px;
+  margin-top: 1rem;
 }
 
 .edge-button {
@@ -163,6 +193,15 @@ p {
     gap:calc( var(--default-padding) * 3);
     padding: 4rem;
     justify-content: space-between;
+    // @media (max-width: 600px) {
+    //   flex-wrap: wrap;
+    // }
+    flex-direction: column;
+  gap: var(--default-padding);
+
+  @media (min-width: 601px) {
+    flex-direction: row;
+}
 }
 
 .browser-img{
@@ -180,6 +219,25 @@ p {
   padding: calc(var(--default-padding) * 2) var(--default-padding) var(--default-padding);
   height: 26rem;
   gap: 2rem;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+}
+.browser {
+  width: 100%;
+
+  @media (min-width: 601px) {
+    width: calc(50% - var(--default-padding));
+  }
+}
+
+.faq {
+  max-width: 100%;
+
+  .faq__row {
+    padding: 1rem 0;
+  }
 }
 
 .browser-button{
@@ -329,6 +387,17 @@ p {
 
     @media (max-width: 600px) {
       margin-right: 0;
+    }
+  }
+}
+
+.footer {
+  &__left {
+    flex-direction: column;
+    gap: var(--default-padding);
+
+    @media (min-width: 601px) {
+      flex-direction: row;
     }
   }
 }
